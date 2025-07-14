@@ -1,0 +1,6 @@
+@APIdangkyvadangnhap_HostAddress = http://localhost:5229
+
+GET {{APIdangkyvadangnhap_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
