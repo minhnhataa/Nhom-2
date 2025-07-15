@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Văn bản pháp luật - Cổng đăng ký doanh nghiệp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link href="../css/van-ban-phap-luat.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <a class="navbar-brand fw-bold" href="../index.html">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item"><a href="../index.html" class="nav-link text-white">Trang chủ</a></li>
+        <li class="nav-item"><a href="gioi-thieu.html" class="nav-link text-white active">Giới thiệu</a></li>
+        <li class="nav-item"><a href="dich-vu-cong.html" class="nav-link text-white">Dịch vụ công</a></li>
+        <li class="nav-item"><a href="ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
+        <li class="nav-item"><a href="van-ban-phap-luat.html" class="nav-link text-white">Văn bản pháp luật</a></li>
+       
+      </ul>
+       <form class="d-flex ms-3 me-2" role="search">
+                <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+            </form>
+      <a href="../login.html" class="btn btn-outline-light btn-sm ms-3">Đăng nhập</a>
+      <a href="../register.html" class="btn btn-light btn-sm ms-2">Đăng ký</a>
+    </div>
+  </nav>
+
+<!-- Nội dung -->
+<div class="container py-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="../index.html">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Văn bản pháp luật</li>
+    </ol>
+  </nav>
+
+  <h3 class="page-title">📚 Văn bản về đăng ký kinh doanh</h3>
+
+  <div class="law-section">
+    <!-- Tabs -->
+    <ul class="nav nav-tabs tab-nav" id="lawTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="luat-tab" data-bs-toggle="tab" data-bs-target="#luat" type="button">LUẬT</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="nghidinh-tab" data-bs-toggle="tab" data-bs-target="#nghidinh" type="button">NGHỊ ĐỊNH</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="thongtu-tab" data-bs-toggle="tab" data-bs-target="#thongtu" type="button">THÔNG TƯ</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="quyetdinh-tab" data-bs-toggle="tab" data-bs-target="#quyetdinh" type="button">QUYẾT ĐỊNH</button>
+      </li>
+    </ul>
+
+    <!-- Nội dung từng tab -->
+    <div class="tab-content" id="lawTabsContent">
+      <!-- Tab LUẬT -->
+      <div class="tab-pane fade show active" id="luat" role="tabpanel">
+        <div class="table-responsive mt-3">
+          <table class="table table-bordered table-striped bg-white">
+            <thead class="table-primary text-center">
+              <tr>
+                <th scope="col">Số ký hiệu</th>
+                <th scope="col">Ban hành</th>
+                <th scope="col">Tên văn bản</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>76/2025/QH15</td>
+                <td>17/06/2025</td>
+                <td>Luật sửa đổi, bổ sung một số điều của Luật Doanh nghiệp</td>
+              </tr>
+              <tr>
+                <td>17/2023/QH15</td>
+                <td>20/06/2023</td>
+                <td>Luật Hợp tác xã số 17/2023/QH15 (có hiệu lực từ ngày 01/7/2024)</td>
+              </tr>
+              <tr>
+                <td>03/2022/QH15</td>
+                <td>11/01/2022</td>
+                <td>Luật số 03/2022/QH15 sửa đổi, bổ sung một số điều của Luật Đầu tư công, Luật Đầu tư theo phương thức đối tác công tư,...</td>
+              </tr>
+              <tr>
+                <td>61/2020/QH14</td>
+                <td>17/06/2020</td>
+                <td>Luật Đầu tư số 61/2020/QH14 (có hiệu lực từ ngày 01/01/2021)</td>
+              </tr>
+              <tr>
+                <td>59/2020/QH14</td>
+                <td>17/06/2020</td>
+                <td>Luật Doanh nghiệp số 59/2020/QH14 (có hiệu lực thi hành từ ngày 01/01/2021)</td>
+              </tr>
+              <tr>
+                <td>38/2019/QH19</td>
+                <td>13/06/2019</td>
+                <td>Luật Quản lý thuế (hiệu lực từ 01/7/2020)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Các tab khác có thể làm tương tự -->
+      <div class="tab-pane fade" id="nghidinh" role="tabpanel">Đang cập nhật...</div>
+      <div class="tab-pane fade" id="thongtu" role="tabpanel">Đang cập nhật...</div>
+      <div class="tab-pane fade" id="quyetdinh" role="tabpanel">Đang cập nhật...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="custom-footer bg-light border-top text-center py-4 mt-5">
+  <p class="mb-0">&copy; 2025 Cổng thông tin Đăng ký Doanh nghiệp. All rights reserved.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
