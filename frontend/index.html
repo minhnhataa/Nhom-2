@@ -1,1 +1,153 @@
 <!-- Trang chủ -->
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ đăng ký doanh nghiệp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body class="bg-light home-container">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+        <a class="navbar-brand fw-bold" href="#">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+
+        <!-- Nút thu gọn menu khi ở mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nội dung navbar -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item"><a href="#" class="nav-link text-white">Trang chủ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Giới thiệu</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Dịch vụ công</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Hỗ trợ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Văn bản pháp luật</a></li>
+            </ul>
+
+            <form class="d-flex ms-3 me-2" role="search">
+                <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+            </form>
+
+            <a href="login.html" class="btn btn-outline-light btn-sm me-2">Đăng nhập</a>
+            <a href="register.html" class="btn btn-light btn-sm">Đăng ký</a>
+        </div>
+    </nav>
+
+    <!-- Thống kê -->
+    <div class="text-center my-4">
+        <h5 class="fw-bold">Thống kê tháng 4/2025 về ĐĂNG KÝ DOANH NGHIỆP</h5>
+        <div class="container mt-4">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-3">
+                    <div class="stat-card bg-blue">
+                        <div>📊 TỔNG DOANH NGHIỆP THÀNH LẬP MỚI</div>
+                        <div class="stat-number">15.228</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card bg-cyan">
+                        <div>🔁 DOANH NGHIỆP QUAY TRỞ LẠI HOẠT ĐỘNG</div>
+                        <div class="stat-number">9.014</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card bg-red">
+                        <div>❌ DOANH NGHIỆP GIẢI THỂ</div>
+                        <div class="stat-number">1.750</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card bg-gray">
+                        <div>⏸ TẠM NGỪNG HOẠT ĐỘNG</div>
+                        <div class="stat-number">7.184</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dịch vụ -->
+    <div class="main-functions">
+        <div class="function-card" data-bs-toggle="modal" data-bs-target="#traCuuModal" style="cursor: pointer;">
+            <img src="https://png.pngtree.com/png-clipart/20230408/original/pngtree-eye-search-vector-icon-design-illustration-png-image_9035825.png" class="function-icon">
+            <p>Tra cứu doanh nghiệp</p>
+        </div>
+
+        <div class="function-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828925.png" class="function-icon">
+            <p>Đăng ký doanh nghiệp</p>
+        </div>
+        <div class="function-card">
+            <img src="https://cdn-icons-png.flaticon.com/128/2329/2329087.png" class="function-icon">
+            <p>Báo cáo điện tử</p>
+        </div>
+        <div class="function-card">
+            <img src="https://cdn-icons-png.flaticon.com/128/11213/11213122.png" class="function-icon">
+            <p>Đăng ký kinh doanh</p>
+        </div>
+        <div class="function-card">
+            <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" class="function-icon">
+            <p>Đăng ký hợp tác xã</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="custom-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png">
+                    <p>Truy cập thông tin pháp lý và quy định mới nhất</p>
+                </div>
+                <div class="footer-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png">
+                    <p>Hỗ trợ trực tuyến và phản hồi nhanh chóng</p>
+                </div>
+                <div class="footer-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+                    <p>Giao diện thân thiện dễ sử dụng cho người dân</p>
+                </div>
+            </div>
+        </div>
+        <p class="mt-4">&copy; 2025 Cổng thông tin Đăng ký Doanh nghiệp. All rights reserved.</p>
+    </div>
+
+    <!-- Modal tra cứu doanh nghiệp -->
+    <div class="modal fade" id="traCuuModal" tabindex="-1" aria-labelledby="traCuuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="traCuuModalLabel">🔍 Tra cứu thông tin doanh nghiệp</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Đóng"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="lookupForm">
+                        <div class="mb-3">
+                            <label for="searchInput" class="form-label">Nhập mã số thuế hoặc tên doanh nghiệp:</label>
+                            <input type="text" class="form-control" id="searchInput"
+                                placeholder="VD: 0312345678 hoặc Công ty ABC" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Tra cứu</button>
+                    </form>
+
+                    <div class="mt-4" id="resultArea" style="display: none;">
+                        <h6>Kết quả tra cứu:</h6>
+                        <div id="resultContent" class="border rounded p-3 bg-light"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/tra-cuu.js"></script>
+</body>
+
+</html>
