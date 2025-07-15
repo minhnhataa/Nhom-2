@@ -1,0 +1,22 @@
+ .service-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      background-color: #fff;
+    }
+    .service-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+    .service-icon {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+    .custom-footer {
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      border-top: 1px solid #ddd;}
