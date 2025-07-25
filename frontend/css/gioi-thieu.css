@@ -1,12 +1,16 @@
-.custom-footer {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-    border-top: 1px solid #ddd;
+
+ .custom-footer-bottom {
+    background: linear-gradient(135deg, #006cbf, #007ac1);
+    color: white;
+    font-size: 14px;
 }
 
-.custom-footer p {
-    margin: 0;
-    color: #555;
+.custom-footer-bottom a.footer-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.custom-footer-bottom a.footer-link:hover {
+    text-decoration: underline;     
 }
