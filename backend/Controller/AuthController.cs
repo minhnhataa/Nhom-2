@@ -1,15 +1,13 @@
 ﻿using APIdangkyvadangnhap.Data;
 using APIdangkyvadangnhap.Models;
-using APIdangkyvadangnhap.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace APIdangkyvadangnhap.Controller
+namespace APIdangkyvadangnhap.Controllers // sửa lại đúng "Controllers"
 {
 	[ApiController]
 	[Route("api/[controller]")]
@@ -17,36 +15,38 @@ namespace APIdangkyvadangnhap.Controller
 	{
 		private readonly string secretKey = "this_is_a_super_long_secret_key_!_jwt_256";
 		private readonly AppDbContext _context;
+
 		public AuthController(AppDbContext context)
 		{
 			_context = context;
 		}
 
-
 		[HttpPost("register")]
 		public async Task<IActionResult> Register(UserRegisterDto dto)
 		{
+			// Hash mật khẩu trước khi lưu
+			string hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash);
+
 			var user = new User
 			{
 				Username = dto.Username,
-				PasswordHash = dto.PasswordHash,
+				PasswordHash = hashedPassword,
 				Role = dto.Role
 			};
 
 			_context.Users.Add(user);
 			await _context.SaveChangesAsync();
 
-			return Ok("User registered successfully");
+			return Ok("✅ Đăng ký người dùng thành công");
 		}
-
 
 		[HttpPost("login")]
 		public IActionResult Login(LoginRequest loginUser)
 		{
-			var user = UserStore.Users.FirstOrDefault(u => u.Username == loginUser.Username);
+			var user = _context.Users.FirstOrDefault(u => u.Username == loginUser.Username);
 			if (user == null || !BCrypt.Net.BCrypt.Verify(loginUser.PasswordHash, user.PasswordHash))
 			{
-				return Unauthorized("Invalid username or password");
+				return Unauthorized("❌ Sai tên đăng nhập hoặc mật khẩu");
 			}
 
 			var token = GenerateJwtToken(user);
@@ -61,9 +61,9 @@ namespace APIdangkyvadangnhap.Controller
 			var tokenDescriptor = new SecurityTokenDescriptor
 			{
 				Subject = new ClaimsIdentity(new[] {
-			new Claim(ClaimTypes.Name, user.Username),
-			new Claim(ClaimTypes.Role, user.Role) // 👈 GÁN CLAIM ROLE
-        }),
+					new Claim(ClaimTypes.Name, user.Username),
+					new Claim(ClaimTypes.Role, user.Role)
+				}),
 				Expires = DateTime.UtcNow.AddHours(1),
 				SigningCredentials = new SigningCredentials(
 					new SymmetricSecurityKey(key),
@@ -73,25 +73,26 @@ namespace APIdangkyvadangnhap.Controller
 			var token = tokenHandler.CreateToken(tokenDescriptor);
 			return tokenHandler.WriteToken(token);
 		}
+
 		[Authorize]
 		[HttpGet("secret")]
 		public IActionResult SecretData()
 		{
-			return Ok("Đây là dữ liệu bí mật bạn chỉ thấy nếu đã đăng nhập!");
+			return Ok("🔐 Đây là dữ liệu bí mật bạn chỉ thấy nếu đã đăng nhập!");
 		}
+
 		[Authorize(Roles = "Admin")]
 		[HttpGet("admin")]
 		public IActionResult AdminOnly()
 		{
-			return Ok("Bạn là Admin nên mới truy cập được API này.");
+			return Ok("🔐 Bạn là Admin nên mới truy cập được API này.");
 		}
+
 		[Authorize]
 		[HttpGet("me")]
 		public IActionResult WhoAmI()
 		{
 			var username = User.Identity?.Name;
-
-			// Tìm role trong claim
 			var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 
 			return Ok(new
