@@ -1,0 +1,84 @@
+<!-- Admin Login Page with API -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập Quản trị viên</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+    }
+    .admin-card {
+      max-width: 400px;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card admin-card shadow-sm bg-white">
+
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">Hệ thống đăng nhập</h2>
+        <p class="text-muted mb-0">Chỉ dành cho quản trị viên</p>
+      </div>
+
+      <form id="adminLoginForm">
+        <div class="mb-3">
+          <label for="adminEmail" class="form-label">Email quản trị</label>
+          <input type="email" class="form-control" id="adminEmail" placeholder="admin@example.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="adminPassword" class="form-label">Mật khẩu</label>
+          <input type="password" class="form-control" id="adminPassword" placeholder="Nhập mật khẩu" required>
+        </div>
+        <button type="submit" class="btn btn-danger w-100">Đăng nhập</button>
+      </form>
+
+      <div class="text-center mt-3">
+        <a href="../index.html" class="text-decoration-none">&larr; Về trang chủ</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("adminLoginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("adminEmail").value;
+      const password = document.getElementById("adminPassword").value;
+
+      try {
+        const response = await fetch("https://yourdomain.com/api/admin/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Ví dụ: lưu token và chuyển trang
+          localStorage.setItem("adminToken", data.token);
+          alert("Đăng nhập thành công!");
+          window.location.href = "index.html";
+        } else {
+          alert(data.message || "Đăng nhập thất bại");
+        }
+      } catch (error) {
+        console.error("Lỗi:", error);
+        alert("Không thể kết nối đến máy chủ");
+      }
+    });
+  </script>
+
+</body>
+</html>
