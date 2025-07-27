@@ -19,6 +19,7 @@
       text-align: center;
       padding: 20px 0;
       margin-top: 50px;
+
       border-top: 1px solid #ddd;}
  .custom-footer-bottom {
     background: linear-gradient(135deg, #006cbf, #007ac1);
@@ -35,3 +36,4 @@
 .custom-footer-bottom a.footer-link:hover {
     text-decoration: underline;     
 }
+
