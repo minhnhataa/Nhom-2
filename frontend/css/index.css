@@ -203,4 +203,45 @@
   vertical-align: middle;
   margin-right: 5px;
 }
+.custom-footer-bottom {
+    background: linear-gradient(135deg, #006cbf, #007ac1);
+    color: white;
+    font-size: 14px;
+}
+
+.custom-footer-bottom a.footer-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.custom-footer-bottom a.footer-link:hover {
+    text-decoration: underline;
+}
+.guide-section .guide-box {
+    border: 1px solid #ddd;
+    padding: 16px;
+    text-align: center;
+    background-color: white;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guide-section .guide-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.guide-section .guide-box img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.guide-section .guide-box p {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.4;
+}
 

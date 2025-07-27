@@ -27,3 +27,19 @@
       background: none;
       padding-left: 0;
     }
+ .custom-footer-bottom {
+    background: linear-gradient(135deg, #006cbf, #007ac1);
+    color: white;
+    font-size: 14px;
+}
+
+.custom-footer-bottom a.footer-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.custom-footer-bottom a.footer-link:hover {
+    text-decoration: underline;     
+}
+
