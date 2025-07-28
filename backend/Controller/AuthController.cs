@@ -1,8 +1,8 @@
-﻿using APIdangkyvadangnhap.Data;
+using APIdangkyvadangnhap.Data;
 using APIdangkyvadangnhap.Models;
-using APIdangkyvadangnhap.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -29,7 +29,8 @@ namespace APIdangkyvadangnhap.Controller
 			var user = new User
 			{
 				Username = dto.Username,
-				PasswordHash = dto.PasswordHash,
+				PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+
 				Role = dto.Role
 			};
 
@@ -43,8 +44,8 @@ namespace APIdangkyvadangnhap.Controller
 		[HttpPost("login")]
 		public IActionResult Login(LoginRequest loginUser)
 		{
-			var user = UserStore.Users.FirstOrDefault(u => u.Username == loginUser.Username);
-			if (user == null || !BCrypt.Net.BCrypt.Verify(loginUser.PasswordHash, user.PasswordHash))
+			var user = _context.Users.FirstOrDefault(u => u.Username == loginUser.Username);
+			if (user == null || !BCrypt.Net.BCrypt.Verify(loginUser.Password, user.PasswordHash))
 			{
 				return Unauthorized("Invalid username or password");
 			}
