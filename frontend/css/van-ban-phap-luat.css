@@ -28,6 +28,9 @@
       padding-left: 0;
     }
  .custom-footer-bottom {
+   position: absolute;
+   bottom: 0;
+  width: 100%;
     background: linear-gradient(135deg, #006cbf, #007ac1);
     color: white;
     font-size: 14px;
