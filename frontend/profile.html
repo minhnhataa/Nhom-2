@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách hồ sơ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <a class="navbar-brand fw-bold" href="index.html">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item"><a href="index.html" class="nav-link text-white">Trang chủ</a></li>
+        <li class="nav-item"><a href="components/gioi-thieu.html" class="nav-link text-white">Giới thiệu</a></li>
+        <li class="nav-item"><a href="components/dich-vu-cong.html" class="nav-link text-white">Dịch vụ công</a></li>
+        <li class="nav-item"><a href="components/ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
+        <li class="nav-item"><a href="components/van-ban-phap-luat.html" class="nav-link text-white">Văn bản pháp luật</a></li>
+      </ul>
+
+      <form class="d-flex ms-3 me-2" role="search">
+        <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+      </form>
+
+      <a href="login.html" class="btn btn-outline-light btn-sm me-2">Đăng nhập</a>
+      <a href="register.html" class="btn btn-light btn-sm">Đăng ký</a>
+    </div>
+  </nav>
+<div class="container my-5">
+  <h2 class="text-center mb-4">📄 Danh sách hồ sơ đăng ký doanh nghiệp</h2>
+
+  <!-- 🔍 Tìm kiếm -->
+  <div class="input-group mb-4">
+    <input type="text" id="searchInput" class="form-control" placeholder="🔍 Tìm theo tên doanh nghiệp...">
+    <button class="btn btn-primary" onclick="searchHoSo()">Tìm kiếm</button>
+    <button class="btn btn-secondary" onclick="resetSearch()">Làm mới</button>
+  </div>
+
+  <!-- 📝 Bảng hiển thị -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped align-middle text-center">
+      <thead class="table-primary">
+        <tr>
+          <th>STT</th>
+          <th>Tên doanh nghiệp</th>
+          <th>Mã số thuế</th>
+          <th>Địa chỉ</th>
+          <th>Người đại diện</th>
+          <th>SĐT</th>
+          <th>Email</th>
+          <th>File</th>
+          <th>Ngày tạo</th>
+        </tr>
+      </thead>
+      <tbody id="hoSoTableBody">
+        <!-- Dữ liệu sẽ được thêm bằng JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <div id="responseMessage" class="mt-3"></div>
+</div>
+
+<!-- JS -->
+<script>
+  let danhSachGoc = [];
+
+  // Hàm tải danh sách hồ sơ từ API
+  async function loadHoSo() {
+    const body = document.getElementById("hoSoTableBody");
+    const msg = document.getElementById("responseMessage");
+
+    try {
+      const res = await fetch("http://localhost:5229/api/DangKy/danhsach");
+      if (!res.ok) throw new Error(await res.text());
+
+      const data = await res.json();
+      danhSachGoc = data;
+      renderHoSo(data);
+    } catch (err) {
+      console.error("❌ Lỗi tải danh sách:", err);
+      msg.innerHTML = `<div class="alert alert-danger">Lỗi tải danh sách hồ sơ: ${err.message}</div>`;
+    }
+  }
+
+  // Hàm render bảng hồ sơ
+  function renderHoSo(data) {
+  const body = document.getElementById("hoSoTableBody");
+
+  if (!Array.isArray(data) || data.length === 0) {
+    body.innerHTML = `<tr><td colspan="9" class="text-center text-muted">Không có hồ sơ nào.</td></tr>`;
+    return;
+  }
+
+  body.innerHTML = data.map((hoso, index) => {
+    const ngay = hoso.ngayTao ? new Date(hoso.ngayTao) : null;
+    const ngayFormatted = ngay
+      ? `${ngay.getDate().toString().padStart(2, '0')}/${(ngay.getMonth() + 1).toString().padStart(2, '0')}/${ngay.getFullYear()} ${ngay.getHours().toString().padStart(2, '0')}:${ngay.getMinutes().toString().padStart(2, '0')}:${ngay.getSeconds().toString().padStart(2, '0')}`
+      : "Chưa rõ";
+
+    return `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${hoso.tenDoanhNghiep}</td>
+        <td>${hoso.maSoThue}</td>
+        <td>${hoso.diaChiTruSo}</td>
+        <td>${hoso.nguoiDaiDien}</td>
+        <td>${hoso.soDienThoai}</td>
+        <td>${hoso.emailLienHe}</td>
+        <td>
+          ${
+            hoso.duongDanFile
+              ? `<a href="http://localhost:5229${hoso.duongDanFile}" target="_blank">${hoso.tenFileUpload || 'Tải file'}</a>`
+              : 'Không có'
+          }
+        </td>
+        <td>${ngayFormatted}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+
+  // Hàm tìm kiếm theo tên doanh nghiệp
+  function searchHoSo() {
+    const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+    const ketQua = danhSachGoc.filter(h =>
+      h.tenDoanhNghiep && h.tenDoanhNghiep.toLowerCase().includes(keyword)
+    );
+    renderHoSo(ketQua);
+  }
+
+  // Hàm reset kết quả tìm kiếm
+  function resetSearch() {
+    document.getElementById("searchInput").value = '';
+    renderHoSo(danhSachGoc);
+  }
+
+  // Tải dữ liệu khi trang load
+  window.onload = loadHoSo;
+</script>
+
+</body>
+</html>

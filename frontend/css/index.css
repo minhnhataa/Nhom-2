@@ -1,0 +1,247 @@
+ /* Cập nhật chung */
+.home-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+.navbar {
+  background-color: #0056b3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 12px 24px;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar .nav-link {
+  color: #ffffffcc;
+  margin-left: 12px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #ffff66;
+}
+
+.navbar .btn {
+  transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #0056b3;
+}
+
+.navbar .btn-light:hover {
+  background-color: #e2e6ea;
+}
+
+/* Vùng chức năng chính */
+.main-functions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 20px;
+  background: #e0efff;
+}
+
+.function-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 20px;
+  border-radius: 16px;
+  width: 220px;
+  background: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.function-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.function-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 12px;
+}
+
+/* Footer */
+.custom-footer {
+  background-color: #f9f9f9;
+  padding: 50px 30px;
+  font-size: 14px;
+  color: #222;
+  border-top: 1px solid #ddd;
+  margin-top: 60px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-left {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  flex: 2;
+}
+
+.footer-box {
+  background: white;
+  padding: 20px 16px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.footer-box img {
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.footer-box p {
+  font-weight: 600;
+  color: #003366;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* Thống kê */
+.stat-card {
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  min-height: 140px; /* chiều cao cố định */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* canh giữa theo chiều dọc */
+}
+
+.stat-number {
+  font-size: 28px;
+  margin-top: 8px;
+  color: yellow;
+}
+
+.bg-blue {
+  background-color: #007bff;
+}
+
+.bg-cyan {
+  background-color: #00cfe8;
+}
+
+.bg-red {
+  background-color: #dc3545;
+}
+
+.bg-gray {
+  background-color: #6c757d;
+}
+.form[role="search"] input {
+  min-width: 160px;
+}
+.support-box {
+  background-color: #f9f9f9;
+  border: 2px solid #4CAF50;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.support-title {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.support-content p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.email-icon {
+  width: 18px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.custom-footer-bottom {
+    background: linear-gradient(135deg, #006cbf, #007ac1);
+    color: white;
+    font-size: 14px;
+}
+
+.custom-footer-bottom a.footer-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.custom-footer-bottom a.footer-link:hover {
+    text-decoration: underline;
+}
+.guide-section .guide-box {
+    border: 1px solid #ddd;
+    padding: 16px;
+    text-align: center;
+    background-color: white;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guide-section .guide-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.guide-section .guide-box img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.guide-section .guide-box p {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.4;
+}
+

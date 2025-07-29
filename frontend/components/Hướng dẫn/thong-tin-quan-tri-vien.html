@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Quản trị viên</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .content-container {
+            max-width: 960px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #0056b3;
+            margin-bottom: 30px;
+        }
+
+        .custom-footer-bottom {
+            background: linear-gradient(135deg, #006cbf, #007ac1);
+            color: white;
+            font-size: 14px;
+        }
+
+        .custom-footer-bottom .footer-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .custom-footer-bottom .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container.my-5 {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper d-flex flex-column min-vh-100">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+            <a class="navbar-brand fw-bold" href="../../index.html">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a href="../../index.html" class="nav-link text-white">Trang chủ</a></li>
+                    <li class="nav-item"><a href="../gioi-thieu.html" class="nav-link text-white">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item"><a href="../dich-vu-cong.html" class="nav-link text-white">Dịch vụ
+                            công</a></li>
+                    <li class="nav-item"><a href="../ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
+                    <li class="nav-item"><a href="../van-ban-phap-luat.html" class="nav-link text-white">Văn bản
+                            pháp luật</a></li>
+                </ul>
+                <form class="d-flex ms-3 me-2" role="search">
+                    <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..."
+                        aria-label="Search">
+                </form>
+                <a href="../../login.html" class="btn btn-outline-light btn-sm me-2">Đăng nhập</a>
+                <a href="../../register.html" class="btn btn-light btn-sm">Đăng ký</a>
+            </div>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <div class="container my-5">
+            <div class="content-container">
+                <h2 class="text-center">Danh sách Quản trị viên</h2>
+
+                <!-- Bảng danh sách quản trị viên -->
+                <table class="table table-striped table-bordered">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>#</th>
+                            <th>Họ và tên</th>
+                            <th>Email</th>
+                            <th>Điện thoại</th>
+                            <th>Chức vụ</th>
+                            <th>Đơn vị</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody">
+                        <!-- DỮ LIỆU SẼ ĐƯỢC ĐIỀN TỰ ĐỘNG BẰNG JS -->
+                        <!-- Ví dụ tĩnh để bạn xem bố cục -->
+                        <tr>
+                            <td>1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>adminA@doanhnghiep.gov.vn</td>
+                            <td>0123 456 789</td>
+                            <td>Trưởng phòng</td>
+                            <td>Hà Nội</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Trần Thị B</td>
+                            <td>adminB@doanhnghiep.gov.vn</td>
+                            <td>0987 654 321</td>
+                            <td>Phó phòng</td>
+                            <td>TP.HCM</td>
+                        </tr>
+                        <!-- Khi dùng API thì JS sẽ xoá 2 dòng trên và render lại -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="custom-footer-bottom text-white">
+            <div class="container py-4">
+                <div class="row text-center justify-content-center">
+                    <div class="col-md-auto mb-2"><a href="../../admin/login-admin.html" class="footer-link">ĐĂNG NHẬP NỘI BỘ</a></div>
+                    <div class="col-md-auto mb-2"><a href="../dieu-khoan.html" class="footer-link">ĐIỀU KHOẢN SỬ DỤNG</a></div>
+                    <div class="col-md-auto mb-2"><a href="../quy-dinh-bao-mat.html" class="footer-link">QUY ĐỊNH BẢO MẬT</a></div>
+                    <div class="col-md-auto mb-2"><a href="../lien-he.html" class="footer-link">LIÊN HỆ</a></div>
+                </div>
+                <div class="text-center mt-3 small">
+                    <span>© 2025 | Bản quyền thuộc Bộ Tài chính</span> &nbsp; | &nbsp;
+                    <span>Địa chỉ : Số 28 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</span> &nbsp; | &nbsp;
+                    <span>Liên hệ: <a href="mailto:hotro@dangkykinhdoanh.gov.vn"
+                            class="footer-link">hotro@dangkykinhdoanh.gov.vn</a></span>
+                </div>
+                <div class="text-center mt-2 fw-bold fs-6">
+                    <img src="https://cdn-icons-png.flaticon.com/512/545/545705.png" width="20" class="me-2" />
+                    <span>Lượt truy cập: 1.725.776.075</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- SCRIPT GÁN DỮ LIỆU BẰNG API -->
+    <script>
+        // Gọi API để lấy danh sách quản trị viên
+        fetch('/api/admins') // Đổi đường dẫn API nếu cần
+            .then(res => res.json())
+            .then(data => {
+                const tableBody = document.getElementById('adminTableBody');
+                tableBody.innerHTML = ''; // Xoá dữ liệu mẫu
+
+                data.forEach((admin, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${admin.name}</td>
+                        <td>${admin.email}</td>
+                        <td>${admin.phone}</td>
+                        <td>${admin.position}</td>
+                        <td>${admin.department}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(err => console.error('Lỗi khi tải danh sách quản trị viên:', err));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Văn bản pháp luật - Cổng đăng ký doanh nghiệp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/van-ban-phap-luat.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <a class="navbar-brand fw-bold" href="../index.html">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item"><a href="../index.html" class="nav-link text-white">Trang chủ</a></li>
+        <li class="nav-item"><a href="gioi-thieu.html" class="nav-link text-white active">Giới thiệu</a></li>
+        <li class="nav-item"><a href="dich-vu-cong.html" class="nav-link text-white">Dịch vụ công</a></li>
+        <li class="nav-item"><a href="ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
+        <li class="nav-item"><a href="van-ban-phap-luat.html" class="nav-link text-white">Văn bản pháp luật</a></li>
+      </ul>
+      <form class="d-flex ms-3 me-2" role="search">
+        <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+      </form>
+      <a href="../login.html" class="btn btn-outline-light btn-sm ms-3">Đăng nhập</a>
+      <a href="../register.html" class="btn btn-light btn-sm ms-2">Đăng ký</a>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Trang chủ</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Văn bản pháp luật</li>
+      </ol>
+    </nav>
+
+    <h3 class="page-title">📚 Văn bản về đăng ký kinh doanh</h3>
+
+    <div class="law-section">
+      <ul class="nav nav-tabs tab-nav" id="lawTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="luat-tab" data-bs-toggle="tab" data-bs-target="#luat" type="button">LUẬT</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="nghidinh-tab" data-bs-toggle="tab" data-bs-target="#nghidinh" type="button">NGHỊ ĐỊNH</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="thongtu-tab" data-bs-toggle="tab" data-bs-target="#thongtu" type="button">THÔNG TƯ</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="quyetdinh-tab" data-bs-toggle="tab" data-bs-target="#quyetdinh" type="button">QUYẾT ĐỊNH</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="lawTabsContent">
+        <div class="tab-pane fade show active" id="luat" role="tabpanel">
+          <div class="table-responsive mt-3">
+            <table class="table table-bordered table-striped bg-white">
+              <thead class="table-primary text-center">
+                <tr>
+                  <th>Số ký hiệu</th>
+                  <th>Ban hành</th>
+                  <th>Tên văn bản</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="law-row" data-id="76/2025/QH15">
+                  <td>76/2025/QH15</td>
+                  <td>17/06/2025</td>
+                  <td>Luật sửa đổi, bổ sung một số điều của Luật Doanh nghiệp</td>
+                </tr>
+                <tr class="law-row" data-id="17/2023/QH15">
+                  <td>17/2023/QH15</td>
+                  <td>20/06/2023</td>
+                  <td>Luật Hợp tác xã số 17/2023/QH15</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nghidinh" role="tabpanel">
+          <div class="table-responsive mt-3">
+            <table class="table table-bordered table-striped bg-white">
+              <thead class="table-primary text-center">
+                <tr>
+                  <th>Số ký hiệu</th>
+                  <th>Ban hành</th>
+                  <th>Tên văn bản</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="law-row" data-id="01/2021/NĐ-CP">
+                  <td>01/2021/NĐ-CP</td>
+                  <td>04/01/2021</td>
+                  <td>Nghị định quy định chi tiết một số điều của Luật Doanh nghiệp</td>
+                </tr>
+                <tr class="law-row" data-id="122/2020/NĐ-CP">
+                  <td>122/2020/NĐ-CP</td>
+                  <td>15/10/2020</td>
+                  <td>Nghị định về phối hợp, liên thông trong giải quyết thủ tục đăng ký doanh nghiệp</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="thongtu" role="tabpanel">
+          <div class="table-responsive mt-3">
+            <table class="table table-bordered table-striped bg-white">
+              <thead class="table-primary text-center">
+                <tr>
+                  <th>Số ký hiệu</th>
+                  <th>Ban hành</th>
+                  <th>Tên văn bản</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="law-row" data-id="01/2021/TT-BKHĐT">
+                  <td>01/2021/TT-BKHĐT</td>
+                  <td>16/03/2021</td>
+                  <td>Thông tư hướng dẫn đăng ký doanh nghiệp theo Luật Doanh nghiệp 2020</td>
+                </tr>
+                <tr class="law-row" data-id="02/2023/TT-BKHĐT">
+                  <td>02/2023/TT-BKHĐT</td>
+                  <td>05/05/2023</td>
+                  <td>Thông tư sửa đổi, bổ sung biểu mẫu đăng ký doanh nghiệp</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="quyetdinh" role="tabpanel">
+          <div class="table-responsive mt-3">
+            <table class="table table-bordered table-striped bg-white">
+              <thead class="table-primary text-center">
+                <tr>
+                  <th>Số ký hiệu</th>
+                  <th>Ban hành</th>
+                  <th>Tên văn bản</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="law-row" data-id="27/QĐ-BKHĐT">
+                  <td>27/QĐ-BKHĐT</td>
+                  <td>15/02/2023</td>
+                  <td>Quyết định phê duyệt kế hoạch cải cách thủ tục hành chính</td>
+                </tr>
+                <tr class="law-row" data-id="48/QĐ-BKHĐT">
+                  <td>48/QĐ-BKHĐT</td>
+                  <td>10/04/2022</td>
+                  <td>Quyết định ban hành biểu mẫu mới trong hồ sơ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Footer -->
+  <footer class="custom-footer-bottom text-white">
+    <div class="container py-4">
+      <div class="row text-center justify-content-center">
+        <div class="col-md-auto mb-2"><a href="../admin/login-admin.html" class="footer-link">ĐĂNG NHẬP NỘI BỘ</a></div>
+        <div class="col-md-auto mb-2"><a href="dieu-khoan.html" class="footer-link">ĐIỀU KHOẢN SỬ DỤNG</a></div>
+        <div class="col-md-auto mb-2"><a href="quy-dinh-bao-mat.html" class="footer-link">QUY ĐỊNH BẢO MẬT</a></div>
+        <div class="col-md-auto mb-2"><a href="lien-he.html" class="footer-link">LIÊN HỆ</a></div>
+      </div>
+      <div class="text-center mt-3 small">
+        <span>© 2025 | Bản quyền thuộc Bộ Tài chính</span> &nbsp; | &nbsp;
+        <span>Địa chỉ : Số 28 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</span> &nbsp; | &nbsp;
+        <span>Liên kết website: <a href="https://dangkykinhdoanh.gov.vn/vn/Pages/Trangchu.aspx"
+            class="footer-link">hotro@dangkykinhdoanh.gov.vn</a></span>
+      </div>
+
+      <div class="text-center mt-2 fw-bold fs-6">
+        <img src="https://cdn-icons-png.flaticon.com/512/545/545705.png" width="20" class="me-2" />
+        <span>Lượt truy cập: 1.725.776.075</span>
+      </div>
+  </footer>
+  <!-- Modal -->
+  <div class="modal fade" id="lawDetailModal" tabindex="-1" aria-labelledby="lawDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="lawDetailModalLabel">Chi tiết văn bản</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Đóng"></button>
+        </div>
+        <div class="modal-body">
+          <h5 id="law-title" class="fw-bold"></h5>
+          <p><strong>Số hiệu:</strong> <span id="law-code"></span></p>
+          <p><strong>Ngày ban hành:</strong> <span id="law-date"></span></p>
+          <p><strong>Nội dung chi tiết:</strong></p>
+          <div id="law-content" class="border rounded p-2 bg-light" style="min-height: 150px;">Đang tải...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const lawData = {
+      "76/2025/QH15": {
+        title: "Luật sửa đổi, bổ sung một số điều của Luật Doanh nghiệp",
+        code: "76/2025/QH15",
+        date: "17/06/2025",
+        content: "Văn bản này quy định sửa đổi các điều khoản về thành lập, giải thể doanh nghiệp..."
+      },
+      "17/2023/QH15": {
+        title: "Luật Hợp tác xã số 17/2023/QH15",
+        code: "17/2023/QH15",
+        date: "20/06/2023",
+        content: "Quy định tổ chức, hoạt động của hợp tác xã..."
+      },
+      "01/2021/NĐ-CP": {
+        title: "Nghị định quy định chi tiết một số điều của Luật Doanh nghiệp",
+        code: "01/2021/NĐ-CP",
+        date: "04/01/2021",
+        content: "Chi tiết thi hành các điều khoản của Luật Doanh nghiệp 2020..."
+      },
+      "122/2020/NĐ-CP": {
+        title: "Nghị định về phối hợp liên thông thủ tục đăng ký doanh nghiệp",
+        code: "122/2020/NĐ-CP",
+        date: "15/10/2020",
+        content: "Hướng dẫn phối hợp cơ quan trong quy trình đăng ký doanh nghiệp."
+      },
+      "01/2021/TT-BKHĐT": {
+        title: "Thông tư hướng dẫn đăng ký doanh nghiệp",
+        code: "01/2021/TT-BKHĐT",
+        date: "16/03/2021",
+        content: "Thông tư quy định biểu mẫu, quy trình đăng ký theo Luật 2020."
+      },
+      "02/2023/TT-BKHĐT": {
+        title: "Thông tư sửa đổi biểu mẫu đăng ký doanh nghiệp",
+        code: "02/2023/TT-BKHĐT",
+        date: "05/05/2023",
+        content: "Cập nhật mẫu đơn đăng ký phù hợp với thực tiễn."
+      },
+      "27/QĐ-BKHĐT": {
+        title: "Quyết định phê duyệt cải cách thủ tục hành chính",
+        code: "27/QĐ-BKHĐT",
+        date: "15/02/2023",
+        content: "Chiến lược cải cách toàn diện thủ tục đăng ký doanh nghiệp."
+      },
+      "48/QĐ-BKHĐT": {
+        title: "Quyết định ban hành biểu mẫu mới",
+        code: "48/QĐ-BKHĐT",
+        date: "10/04/2022",
+        content: "Thông qua bộ mẫu mới trong hồ sơ đăng ký doanh nghiệp."
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.law-row').forEach(row => {
+        row.addEventListener('click', () => {
+          const id = row.getAttribute('data-id');
+          const info = lawData[id];
+          if (info) {
+            document.getElementById('law-title').textContent = info.title;
+            document.getElementById('law-code').textContent = info.code;
+            document.getElementById('law-date').textContent = info.date;
+            document.getElementById('law-content').textContent = info.content;
+            new bootstrap.Modal(document.getElementById('lawDetailModal')).show();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

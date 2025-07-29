@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Nộp hồ sơ doanh nghiệp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <a class="navbar-brand fw-bold" href="index.html">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item"><a href="index.html" class="nav-link text-white">Trang chủ</a></li>
+        <li class="nav-item"><a href="components/gioi-thieu.html" class="nav-link text-white">Giới thiệu</a></li>
+        <li class="nav-item"><a href="components/dich-vu-cong.html" class="nav-link text-white">Dịch vụ công</a></li>
+        <li class="nav-item"><a href="components/ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
+        <li class="nav-item"><a href="components/van-ban-phap-luat.html" class="nav-link text-white">Văn bản pháp luật</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <h2 class="text-center mb-4">📄 Nộp hồ sơ đăng ký doanh nghiệp</h2>
+    <form id="companyForm" class="bg-white p-4 rounded shadow-sm" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="TenDoanhNghiep" class="form-label">Tên doanh nghiệp:</label>
+        <input type="text" class="form-control" id="TenDoanhNghiep" name="TenDoanhNghiep" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="MaSoThue" class="form-label">Mã số thuế:</label>
+        <input type="text" class="form-control" id="MaSoThue" name="MaSoThue" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="DiaChiTruSo" class="form-label">Địa chỉ trụ sở:</label>
+        <input type="text" class="form-control" id="DiaChiTruSo" name="DiaChiTruSo" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="NguoiDaiDien" class="form-label">Người đại diện:</label>
+        <input type="text" class="form-control" id="NguoiDaiDien" name="NguoiDaiDien" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="SoDienThoai" class="form-label">Số điện thoại:</label>
+        <input type="tel" class="form-control" id="SoDienThoai" name="SoDienThoai" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="EmailLienHe" class="form-label">Email liên hệ:</label>
+        <input type="email" class="form-control" id="EmailLienHe" name="EmailLienHe" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="GhiChu" class="form-label">Ghi chú (tuỳ chọn):</label>
+        <textarea class="form-control" id="GhiChu" name="GhiChu" rows="3"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="file" class="form-label">Tải lên hồ sơ (PDF/Ảnh ≤ 5MB):</label>
+        <input type="file" class="form-control" id="file" name="file" accept=".pdf,image/*" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Gửi hồ sơ</button>
+    </form>
+
+    <div id="responseMessage" class="mt-4"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("companyForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const msg = document.getElementById("responseMessage");
+
+      try {
+        const res = await fetch("http://localhost:5229/api/DangKy/nop", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!res.ok) {
+          const errorText = await res.text();
+          throw new Error("Lỗi từ server: " + errorText);
+        }
+
+        const result = await res.json();
+        msg.innerHTML = `<div class="alert alert-success">${result.message || "Gửi hồ sơ thành công!"}</div>`;
+        form.reset();
+      } catch (err) {
+        msg.innerHTML = `<div class="alert alert-danger">❌ Lỗi máy chủ hoặc mạng. Vui lòng thử lại.<br>${err.message}</div>`;
+        console.error("❌ Lỗi fetch:", err);
+      }
+    });
+  </script>
+</body>
+
+</html>

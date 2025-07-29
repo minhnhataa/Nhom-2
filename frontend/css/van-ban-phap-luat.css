@@ -1,0 +1,48 @@
+.tab-nav .nav-link.active {
+      background-color: #0d6efd;
+      color: white !important;
+    }
+
+    .table th, .table td {
+      vertical-align: middle;
+    }
+
+    .law-section {
+      background: #eaf4ff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .tab-pane {
+      margin-top: 20px;
+    }
+
+    .page-title {
+      font-weight: bold;
+      color: #0d6efd;
+      margin-bottom: 25px;
+    }
+
+    .breadcrumb {
+      background: none;
+      padding-left: 0;
+    }
+ .custom-footer-bottom {
+   position: absolute;
+   bottom: 0;
+  width: 100%;
+    background: linear-gradient(135deg, #006cbf, #007ac1);
+    color: white;
+    font-size: 14px;
+}
+
+.custom-footer-bottom a.footer-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.custom-footer-bottom a.footer-link:hover {
+    text-decoration: underline;     
+}
+
