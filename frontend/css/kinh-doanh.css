@@ -1,0 +1,74 @@
+/* CSS cho trang đăng ký kinh doanh */
+
+/* Header gradient */
+.business-header {
+    background: linear-gradient(135deg, #28a745, #20c997) !important;
+}
+
+/* Card header */
+.business-card-header {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+/* Text colors */
+.text-business {
+    color: #28a745 !important;
+}
+
+/* Button styles */
+.btn-business {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-business:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Form styling */
+.business-form .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.business-form .form-select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Icon styling */
+.business-icon {
+    color: #28a745;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.custom-footer-bottom {
+    background-color: #2c3e50;
+    margin-top: auto;
+}
+
+.footer-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: #28a745;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .business-header h1 {
+        font-size: 2rem;
+    }
+    
+    .business-header .lead {
+        font-size: 1rem;
+    }
+}

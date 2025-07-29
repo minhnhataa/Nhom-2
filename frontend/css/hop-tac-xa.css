@@ -1,0 +1,74 @@
+/* CSS cho trang đăng ký hợp tác xã */
+
+/* Header gradient */
+.cooperative-header {
+    background: linear-gradient(135deg, #6f42c1, #e83e8c) !important;
+}
+
+/* Card header */
+.cooperative-card-header {
+    background-color: #6f42c1 !important;
+    border-color: #6f42c1 !important;
+}
+
+/* Text colors */
+.text-cooperative {
+    color: #6f42c1 !important;
+}
+
+/* Button styles */
+.btn-cooperative {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+    color: white;
+}
+
+.btn-cooperative:hover {
+    background-color: #5a32a3;
+    border-color: #512a8b;
+}
+
+/* Form styling */
+.cooperative-form .form-control:focus {
+    border-color: #6f42c1;
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+}
+
+.cooperative-form .form-select:focus {
+    border-color: #6f42c1;
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+}
+
+/* Icon styling */
+.cooperative-icon {
+    color: #6f42c1;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.custom-footer-bottom {
+    background-color: #2c3e50;
+    margin-top: auto;
+}
+
+.footer-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: #6f42c1;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cooperative-header h1 {
+        font-size: 2rem;
+    }
+    
+    .cooperative-header .lead {
+        font-size: 1rem;
+    }
+}

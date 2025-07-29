@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Báo cáo điện tử - Đăng ký doanh nghiệp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/bao-cao.css" rel="stylesheet">
+</head>
+
+<body class="bg-light home-container">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+        <a class="navbar-brand fw-bold" href="index.html">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item"><a href="index.html" class="nav-link text-white">Trang chủ</a></li>
+                <li class="nav-item"><a href="components/gioi-thieu.html" class="nav-link text-white">Giới thiệu</a></li>
+                <li class="nav-item"><a href="components/dich-vu-cong.html" class="nav-link text-white">Dịch vụ công</a></li>
+                <li class="nav-item"><a href="components/ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
+                <li class="nav-item"><a href="components/van-ban-phap-luat.html" class="nav-link text-white">Văn bản pháp luật</a></li>
+            </ul>
+
+            <form class="d-flex ms-3 me-2" role="search">
+                <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+            </form>
+
+            <a href="login.html" class="btn btn-outline-light btn-sm me-2">Đăng nhập</a>
+            <a href="register.html" class="btn btn-light btn-sm">Đăng ký</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container-fluid bg-gradient text-white py-4" style="background: linear-gradient(135deg, #007bff, #0056b3);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-5 fw-bold mb-2">📊 Báo cáo điện tử</h1>
+                    <p class="lead mb-0">Hệ thống báo cáo và thống kê doanh nghiệp trực tuyến</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2329/2329087.png" alt="Báo cáo" class="img-fluid" style="max-width: 120px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Bộ lọc báo cáo -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">🔍 Bộ lọc báo cáo</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="reportFilterForm">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label for="reportType" class="form-label">Loại báo cáo</label>
+                                    <select class="form-select" id="reportType" required>
+                                        <option value="">Chọn loại báo cáo</option>
+                                        <option value="doanh-nghiep-moi">Doanh nghiệp thành lập mới</option>
+                                        <option value="doanh-nghiep-giai-the">Doanh nghiệp giải thể</option>
+                                        <option value="doanh-nghiep-tam-ngung">Doanh nghiệp tạm ngừng</option>
+                                        <option value="doanh-nghiep-quay-lai">Doanh nghiệp quay trở lại</option>
+                                        <option value="tong-hop">Báo cáo tổng hợp</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="timeRange" class="form-label">Khoảng thời gian</label>
+                                    <select class="form-select" id="timeRange" required>
+                                        <option value="">Chọn thời gian</option>
+                                        <option value="thang-hien-tai">Tháng hiện tại</option>
+                                        <option value="quy-hien-tai">Quý hiện tại</option>
+                                        <option value="nam-hien-tai">Năm hiện tại</option>
+                                        <option value="tuy-chinh">Tùy chỉnh</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="fromDate" class="form-label">Từ ngày</label>
+                                    <input type="date" class="form-control" id="fromDate">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="toDate" class="form-label">Đến ngày</label>
+                                    <input type="date" class="form-control" id="toDate">
+                                </div>
+                                <div class="col-md-2 d-flex align-items-end">
+                                    <button type="submit" class="btn btn-success w-100">
+                                        <i class="fas fa-search"></i> Tạo báo cáo
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kết quả báo cáo -->
+        <div class="row" id="reportResults" style="display: none;">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">📈 Kết quả báo cáo</h5>
+                        <div>
+                            <button class="btn btn-light btn-sm me-2" onclick="exportReport('excel')">
+                                📊 Xuất Excel
+                            </button>
+                            <button class="btn btn-light btn-sm" onclick="exportReport('pdf')">
+                                📄 Xuất PDF
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Biểu đồ -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <canvas id="chartCanvas" width="400" height="200"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="summaryStats" class="row g-3">
+                                    <!-- Thống kê tóm tắt sẽ được tạo động -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bảng dữ liệu -->
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover" id="reportTable">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Tên doanh nghiệp</th>
+                                        <th>Mã số thuế</th>
+                                        <th>Ngày đăng ký</th>
+                                        <th>Trạng thái</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reportTableBody">
+                                    <!-- Dữ liệu sẽ được tải động -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Phân trang -->
+                        <nav aria-label="Phân trang báo cáo">
+                            <ul class="pagination justify-content-center" id="pagination">
+                                <!-- Phân trang sẽ được tạo động -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Báo cáo nhanh -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4">📋 Báo cáo nhanh</h3>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card h-100 shadow-sm quick-report-card" onclick="generateQuickReport('monthly')">
+                    <div class="card-body text-center">
+                        <div class="quick-report-icon mb-3">
+                            📅
+                        </div>
+                        <h5>Báo cáo tháng</h5>
+                        <p class="text-muted">Thống kê doanh nghiệp theo tháng</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card h-100 shadow-sm quick-report-card" onclick="generateQuickReport('quarterly')">
+                    <div class="card-body text-center">
+                        <div class="quick-report-icon mb-3">
+                            📊
+                        </div>
+                        <h5>Báo cáo quý</h5>
+                        <p class="text-muted">Thống kê doanh nghiệp theo quý</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card h-100 shadow-sm quick-report-card" onclick="generateQuickReport('yearly')">
+                    <div class="card-body text-center">
+                        <div class="quick-report-icon mb-3">
+                            📈
+                        </div>
+                        <h5>Báo cáo năm</h5>
+                        <p class="text-muted">Thống kê doanh nghiệp theo năm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card h-100 shadow-sm quick-report-card" onclick="generateQuickReport('comparison')">
+                    <div class="card-body text-center">
+                        <div class="quick-report-icon mb-3">
+                            🔄
+                        </div>
+                        <h5>So sánh</h5>
+                        <p class="text-muted">So sánh các kỳ báo cáo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="custom-footer-bottom text-white">
+        <div class="container py-4">
+            <div class="row text-center justify-content-center">
+                <div class="col-md-auto mb-2"><a href="admin/login-admin.html" class="footer-link">ĐĂNG NHẬP NỘI BỘ</a></div>
+                <div class="col-md-auto mb-2"><a href="components/dieu-khoan.html" class="footer-link">ĐIỀU KHOẢN SỬ DỤNG</a></div>
+                <div class="col-md-auto mb-2"><a href="components/quy-dinh-bao-mat.html" class="footer-link">QUY ĐỊNH BẢO MẬT</a></div>
+                <div class="col-md-auto mb-2"><a href="components/lien-he.html" class="footer-link">LIÊN HỆ</a></div>
+            </div>
+
+            <div class="text-center mt-3 small">
+                <span>© 2025 | Bản quyền thuộc Bộ Tài chính</span> &nbsp; | &nbsp;
+                <span>Địa chỉ : Số 28 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</span> &nbsp; | &nbsp;
+                <span>Liên kết website: <a href="https://dangkykinhdoanh.gov.vn/vn/Pages/Trangchu.aspx" class="footer-link">hotro@dangkykinhdoanh.gov.vn</a></span>
+            </div>
+
+            <div class="text-center mt-2 fw-bold fs-6">
+                <img src="https://cdn-icons-png.flaticon.com/512/545/545705.png" width="20" class="me-2" />
+                <span>Lượt truy cập: 1.725.776.075</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="JS/bao-cao.js"></script>
+</body>
+
+</html>
