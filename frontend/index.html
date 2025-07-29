@@ -11,36 +11,48 @@
 </head>
 
 <body class="bg-light home-container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <a class="navbar-brand fw-bold" href="#">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
-        <a class="navbar-brand fw-bold" href="#">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+    <!-- Nút thu gọn menu khi ở mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- Nút thu gọn menu khi ở mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Nội dung navbar -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+            <li class="nav-item"><a href="#" class="nav-link text-white">Trang chủ</a></li>
+            <li class="nav-item"><a href="components/gioi-thieu.html" class="nav-link text-white">Giới thiệu</a></li>
+            <li class="nav-item"><a href="components/dich-vu-cong.html" class="nav-link text-white">Dịch vụ công</a></li>
+            <li class="nav-item"><a href="components/ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
+            <li class="nav-item"><a href="components/van-ban-phap-luat.html" class="nav-link text-white">Văn bản pháp luật</a></li>
+        </ul>
 
-        <!-- Nội dung navbar -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item"><a href="#" class="nav-link text-white">Trang chủ</a></li>
-                <li class="nav-item"><a href="components/gioi-thieu.html" class="nav-link text-white">Giới thiệu</a>
-                </li>
-                <li class="nav-item"><a href="components/dich-vu-cong.html" class="nav-link text-white">Dịch vụ công</a>
-                </li>
-                <li class="nav-item"><a href="components/ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
-                <li class="nav-item"><a href="components/van-ban-phap-luat.html" class="nav-link text-white">Văn bản
-                        pháp luật</a></li>
-            </ul>
+        <form class="d-flex me-3" role="search">
+            <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+        </form>
 
-            <form class="d-flex ms-3 me-2" role="search">
-                <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Search">
-            </form>
-
+        <!-- Phần nút đăng nhập / đăng ký -->
+        <div class="d-flex align-items-center" id="authButtons">
             <a href="login.html" class="btn btn-outline-light btn-sm me-2">Đăng nhập</a>
             <a href="register.html" class="btn btn-light btn-sm">Đăng ký</a>
         </div>
-    </nav>
+
+        <!-- Menu người dùng sau khi đăng nhập -->
+        <ul class="navbar-nav ms-2" id="userMenu" style="display: none;">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                    👤 Tài khoản
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#" id="logoutBtn">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 
     <!-- Thống kê -->
     <div class="text-center my-4">
@@ -198,6 +210,31 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="JS/tra-cuu.js"></script>
-</body>
 
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const token = localStorage.getItem("token");
+    const authButtons = document.getElementById("authButtons");
+    const userMenu = document.getElementById("userMenu");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (token) {
+      if (authButtons) authButtons.style.display = "none";
+      if (userMenu) userMenu.style.display = "flex";
+    } else {
+      if (authButtons) authButtons.style.display = "flex";
+      if (userMenu) userMenu.style.display = "none";
+    }
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        window.location.reload();
+      });
+    }
+  });
+</script>
+
+
+</body>
 </html>
