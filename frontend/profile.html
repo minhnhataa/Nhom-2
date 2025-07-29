@@ -68,6 +68,7 @@
 <script>
   let danhSachGoc = [];
 
+  // Hàm tải danh sách hồ sơ từ API
   async function loadHoSo() {
     const body = document.getElementById("hoSoTableBody");
     const msg = document.getElementById("responseMessage");
@@ -85,14 +86,22 @@
     }
   }
 
+  // Hàm render bảng hồ sơ
   function renderHoSo(data) {
-    const body = document.getElementById("hoSoTableBody");
-    if (!Array.isArray(data) || data.length === 0) {
-      body.innerHTML = `<tr><td colspan="9" class="text-center text-muted">Không có hồ sơ nào.</td></tr>`;
-      return;
-    }
+  const body = document.getElementById("hoSoTableBody");
 
-    body.innerHTML = data.map((hoso, index) => `
+  if (!Array.isArray(data) || data.length === 0) {
+    body.innerHTML = `<tr><td colspan="9" class="text-center text-muted">Không có hồ sơ nào.</td></tr>`;
+    return;
+  }
+
+  body.innerHTML = data.map((hoso, index) => {
+    const ngay = hoso.ngayTao ? new Date(hoso.ngayTao) : null;
+    const ngayFormatted = ngay
+      ? `${ngay.getDate().toString().padStart(2, '0')}/${(ngay.getMonth() + 1).toString().padStart(2, '0')}/${ngay.getFullYear()} ${ngay.getHours().toString().padStart(2, '0')}:${ngay.getMinutes().toString().padStart(2, '0')}:${ngay.getSeconds().toString().padStart(2, '0')}`
+      : "Chưa rõ";
+
+    return `
       <tr>
         <td>${index + 1}</td>
         <td>${hoso.tenDoanhNghiep}</td>
@@ -101,23 +110,36 @@
         <td>${hoso.nguoiDaiDien}</td>
         <td>${hoso.soDienThoai}</td>
         <td>${hoso.emailLienHe}</td>
-        <td><a href="${hoso.duongDanFile}" target="_blank">${hoso.tenFileUpload || 'Tệp'}</a></td>
-        <td>${new Date(hoso.ngayTao).toLocaleString()}</td>
+        <td>
+          ${
+            hoso.duongDanFile
+              ? `<a href="http://localhost:5229${hoso.duongDanFile}" target="_blank">${hoso.tenFileUpload || 'Tải file'}</a>`
+              : 'Không có'
+          }
+        </td>
+        <td>${ngayFormatted}</td>
       </tr>
-    `).join("");
-  }
+    `;
+  }).join("");
+}
 
+
+  // Hàm tìm kiếm theo tên doanh nghiệp
   function searchHoSo() {
-    const keyword = document.getElementById("searchInput").value.toLowerCase();
-    const ketQua = danhSachGoc.filter(h => h.tenDoanhNghiep.toLowerCase().includes(keyword));
+    const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+    const ketQua = danhSachGoc.filter(h =>
+      h.tenDoanhNghiep && h.tenDoanhNghiep.toLowerCase().includes(keyword)
+    );
     renderHoSo(ketQua);
   }
 
+  // Hàm reset kết quả tìm kiếm
   function resetSearch() {
     document.getElementById("searchInput").value = '';
     renderHoSo(danhSachGoc);
   }
 
+  // Tải dữ liệu khi trang load
   window.onload = loadHoSo;
 </script>
 
