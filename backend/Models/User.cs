@@ -3,17 +3,15 @@
 namespace APIdangkyvadangnhap.Models
 {
 	public class User
-	{
-		[Key]
-		public int Id { get; set; } // 👈 Thêm ID để làm khoá chính
+{
+    public int Id { get; set; }
 
-		[Required]
-		public string Username { get; set; } = "";
+    // public string Username { get; set; } ❌ bỏ dòng này
+    public string Email { get; set; } // ✅ dùng Email thay vì Username
 
-		[Required]
-		public string PasswordHash { get; set; } = "";
+    public string PasswordHash { get; set; }
 
-		[Required]
-		public string Role { get; set; } = "User";
-	}
+    public string Role { get; set; } = "User";
+}
+
 }

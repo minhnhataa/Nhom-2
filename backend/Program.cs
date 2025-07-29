@@ -6,39 +6,16 @@ using Microsoft.EntityFrameworkCore;
 using APIdangkyvadangnhap.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// 👉 1. Cấu hình EF DbContext (Kết nối SQL Server)
 builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseSqlServer(
 		builder.Configuration.GetConnectionString("DefaultConnection")
 	)
 );
 
-// 👉 2. Cấu hình JWT
-var key = Encoding.ASCII.GetBytes("this_is_a_super_long_secret_key_!_jwt_256");
-
-builder.Services.AddAuthentication(options =>
-{
-	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-	options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-	options.RequireHttpsMetadata = false;
-	options.SaveToken = true;
-	options.TokenValidationParameters = new TokenValidationParameters
-	{
-		ValidateIssuerSigningKey = true,
-		IssuerSigningKey = new SymmetricSecurityKey(key),
-		ValidateIssuer = false,
-		ValidateAudience = false
-	};
-});
-
-// 👉 3. Add Controller API và Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+// ✅ Sửa phần này:
 builder.Services.AddSwaggerGen(options =>
 {
 	options.SwaggerDoc("v1", new OpenApiInfo
@@ -76,28 +53,35 @@ VD: Bearer abc123xyz",
 		}
 	});
 });
-builder.Services.AddCors(options =>
+
+// JWT Authentication
+var key = Encoding.ASCII.GetBytes("this_is_a_super_long_secret_key_!_jwt_256");
+builder.Services.AddAuthentication(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()   // Cho phép mọi nguồn (frontend ở đâu cũng gọi được)
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
+	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+	options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+	options.RequireHttpsMetadata = false;
+	options.SaveToken = true;
+	options.TokenValidationParameters = new TokenValidationParameters
+	{
+		ValidateIssuerSigningKey = true,
+		IssuerSigningKey = new SymmetricSecurityKey(key),
+		ValidateIssuer = false,
+		ValidateAudience = false
+	};
 });
 
 var app = builder.Build();
 
-// 👉 4. Middleware cấu hình
-app.UseStaticFiles();                // Cho phép truy cập HTML/JS/CSS từ wwwroot
 app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-app.UseCors("AllowAll");
-app.UseAuthentication();            // Quan trọng nếu có [Authorize]
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
