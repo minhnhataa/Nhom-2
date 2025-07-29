@@ -1,36 +1,37 @@
-document.getElementById('registerForm').addEventListener('submit', function(e) {
+document.getElementById("registerForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const email = document.getElementById('registerEmail').value.trim();
-  const password = document.getElementById('registerPassword').value;
-  const confirmPassword = document.getElementById('registerConfirmPassword').value;
+  const email = document.getElementById("registerEmail").value.trim();
+  const password = document.getElementById("registerPassword").value;
+  const confirmPassword = document.getElementById("registerConfirmPassword").value;
 
-  if (!email || !password || !confirmPassword) {
-    alert("Vui lòng điền đầy đủ thông tin.");
-    return;
-  }
-
+  // Kiểm tra xác nhận mật khẩu
   if (password !== confirmPassword) {
-    alert("Mật khẩu xác nhận không khớp.");
+    alert("❌ Mật khẩu và xác nhận mật khẩu không khớp.");
     return;
   }
 
-  fetch('http://localhost:3000/api/auth/register', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.success) {
-      alert("Đăng ký thành công!");
-      window.location.href = "login.html";
-    } else {
-      alert("Đăng ký thất bại: " + data.message);
+  try {
+    const res = await fetch("http://localhost:5229/api/NguoiDung/dangky", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+        matKhau: password,
+        xacNhanMatKhau: confirmPassword
+      })
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(errorText || "Đăng ký thất bại.");
     }
-  })
-  .catch(err => {
-    console.error("Lỗi khi đăng ký:", err);
-    alert("Lỗi máy chủ hoặc mạng.");
-  });
+
+    const result = await res.json();
+    alert(result.message || "✅ Đăng ký thành công!");
+    window.location.href = "login.html"; // chuyển về trang đăng nhập
+  } catch (err) {
+    alert("❌ Đăng ký lỗi: " + err.message);
+    console.error(err);
+  }
 });

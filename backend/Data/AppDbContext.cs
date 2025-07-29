@@ -14,5 +14,6 @@ namespace APIdangkyvadangnhap.Data
 
         // Bảng hồ sơ đăng ký doanh nghiệp
         public DbSet<HoSoDangKy> HoSoDangKys { get; set; }
+        public DbSet<NguoiDung> NguoiDungs { get; set; }
     }
 }

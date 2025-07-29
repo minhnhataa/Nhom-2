@@ -1,31 +1,33 @@
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById("loginForm");
+  if (!loginForm) return; // Tránh lỗi nếu không ở trang login
 
-  const email = document.getElementById('loginEmail').value.trim();
-  const password = document.getElementById('loginPassword').value;
+  loginForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  if (!email || !password) {
-    alert("Vui lòng nhập đầy đủ thông tin.");
-    return;
-  }
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-  fetch('http://localhost:3000/api/auth/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.success) {
-      alert("Đăng nhập thành công!");
-      localStorage.setItem('token', data.token);
-      window.location.href = "index.html";
-    } else {
-      alert("Đăng nhập thất bại: " + data.message);
+    try {
+      const response = await fetch("http://localhost:5123/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email: email, matKhau: password })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem("token", "da_dang_nhap"); // Hoặc data.token nếu API trả token
+        window.location.href = "index.html";
+      } else {
+        const errorText = await response.text();
+        alert("Đăng nhập thất bại: " + errorText);
+      }
+    } catch (err) {
+      console.error("Lỗi đăng nhập:", err);
+      alert("Có lỗi xảy ra. Vui lòng thử lại sau.");
     }
-  })
-  .catch(err => {
-    console.error("Lỗi khi đăng nhập:", err);
-    alert("Lỗi máy chủ hoặc kết nối.");
   });
 });
