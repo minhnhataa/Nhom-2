@@ -49,7 +49,9 @@ namespace APIdangkyvadangnhap.Controllers
                 model.DuongDanFile = "/uploads/" + fileName;
             }
 
-            // ❌ Bỏ dòng model.NgayTao = DateTime.Now;
+            // ✅ Thêm ngày tạo tại đây
+            model.NgayTao = DateTime.Now;
+
             _context.HoSoDangKys.Add(model);
             await _context.SaveChangesAsync();
 
@@ -67,7 +69,8 @@ namespace APIdangkyvadangnhap.Controllers
                 query = query.Where(h => h.TenDoanhNghiep.Contains(keyword));
             }
 
-            var result = await query.OrderByDescending(h => h.Id).ToListAsync(); // nếu bỏ NgayTao, dùng Id để sort
+            // ✅ Sắp xếp theo ngày tạo nếu có
+            var result = await query.OrderByDescending(h => h.NgayTao).ToListAsync();
             return Ok(result);
         }
     }

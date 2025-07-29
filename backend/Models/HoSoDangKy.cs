@@ -27,4 +27,6 @@ public class HoSoDangKy
 
     public string? TenFileUpload { get; set; }
     public string? DuongDanFile { get; set; }
+    public DateTime? NgayTao { get; set; }
+
 }
