@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký hợp tác xã - Đăng ký doanh nghiệp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/hop-tac-xa.css" rel="stylesheet">
+</head>
+
+<body class="bg-light home-container">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+        <a class="navbar-brand fw-bold" href="index.html">🏣 ĐĂNG KÝ DOANH NGHIỆP</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item"><a href="index.html" class="nav-link text-white">Trang chủ</a></li>
+                <li class="nav-item"><a href="components/gioi-thieu.html" class="nav-link text-white">Giới thiệu</a></li>
+                <li class="nav-item"><a href="components/dich-vu-cong.html" class="nav-link text-white">Dịch vụ công</a></li>
+                <li class="nav-item"><a href="components/ho-tro.html" class="nav-link text-white">Hỗ trợ</a></li>
+                <li class="nav-item"><a href="components/van-ban-phap-luat.html" class="nav-link text-white">Văn bản pháp luật</a></li>
+            </ul>
+
+            <a href="login.html" class="btn btn-outline-light btn-sm me-2">Đăng nhập</a>
+            <a href="register.html" class="btn btn-light btn-sm">Đăng ký</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container-fluid cooperative-header text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-5 fw-bold mb-2">🤝 Đăng ký hợp tác xã</h1>
+                    <p class="lead mb-0">Thành lập hợp tác xã theo quy định pháp luật Việt Nam</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="Hợp tác xã" class="img-fluid" style="max-width: 120px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-purple text-white" style="background-color: #6f42c1 !important;">
+                        <h4 class="mb-0 text-center">📋 FORM ĐĂNG KÝ HỢP TÁC XÃ</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="cooperativeRegistrationForm" class="cooperative-form">
+                            <!-- Thông tin hợp tác xã -->
+                            <div class="mb-4">
+                                <h5 class="text-purple mb-3" style="color: #6f42c1;">🏢 Thông tin hợp tác xã</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-8">
+                                        <label for="cooperativeName" class="form-label">Tên hợp tác xã <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="cooperativeName" placeholder="Hợp tác xã..." required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="cooperativeType" class="form-label">Loại hình <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="cooperativeType" required>
+                                            <option value="">Chọn loại hình</option>
+                                            <option value="nong-nghiep">Nông nghiệp</option>
+                                            <option value="thuong-mai">Thương mại</option>
+                                            <option value="dich-vu">Dịch vụ</option>
+                                            <option value="tin-dung">Tín dụng</option>
+                                            <option value="khac">Khác</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="cooperativeAddress" class="form-label">Địa chỉ trụ sở <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="cooperativeAddress" rows="2" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="businessScope" class="form-label">Ngành nghề hoạt động <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="businessScope" rows="3" placeholder="Mô tả chi tiết các hoạt động kinh doanh của hợp tác xã..." required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Thông tin người đại diện -->
+                            <div class="mb-4">
+                                <h5 class="text-purple mb-3" style="color: #6f42c1;">👤 Thông tin người đại diện pháp luật</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="representativeName" class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="representativeName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="representativePosition" class="form-label">Chức vụ <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="representativePosition" required>
+                                            <option value="">Chọn chức vụ</option>
+                                            <option value="chu-tich">Chủ tịch</option>
+                                            <option value="giam-doc">Giám đốc</option>
+                                            <option value="pho-chu-tich">Phó chủ tịch</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="representativePhone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="representativePhone" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="representativeEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="representativeEmail">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="representativeIdCard" class="form-label">CCCD/CMND <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="representativeIdCard" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="representativeBirthDate" class="form-label">Ngày sinh</label>
+                                        <input type="date" class="form-control" id="representativeBirthDate">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="representativeAddress" class="form-label">Địa chỉ thường trú <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="representativeAddress" rows="2" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Thông tin thành viên -->
+                            <div class="mb-4">
+                                <h5 class="text-purple mb-3" style="color: #6f42c1;">👥 Thông tin thành viên</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label for="memberCount" class="form-label">Số lượng thành viên <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="memberCount" min="7" required>
+                                        <small class="text-muted">Tối thiểu 7 thành viên</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="foundingMemberCount" class="form-label">Thành viên sáng lập</label>
+                                        <input type="number" class="form-control" id="foundingMemberCount" min="3">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="shareCapital" class="form-label">Vốn góp/thành viên (VNĐ)</label>
+                                        <input type="number" class="form-control" id="shareCapital" min="0">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="memberList" class="form-label">Danh sách thành viên sáng lập</label>
+                                        <textarea class="form-control" id="memberList" rows="4" placeholder="Ghi rõ họ tên, CCCD, địa chỉ của từng thành viên sáng lập..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Vốn điều lệ -->
+                            <div class="mb-4">
+                                <h5 class="text-purple mb-3" style="color: #6f42c1;">💰 Thông tin vốn</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="charterCapital" class="form-label">Vốn điều lệ (VNĐ) <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="charterCapital" min="0" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="paidCapital" class="form-label">Vốn đã góp (VNĐ)</label>
+                                        <input type="number" class="form-control" id="paidCapital" min="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tài liệu đính kèm -->
+                            <div class="mb-4">
+                                <h5 class="text-purple mb-3" style="color: #6f42c1;">📎 Tài liệu đính kèm</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="charterFile" class="form-label">Điều lệ hợp tác xã <span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" id="charterFile" accept=".pdf,.doc,.docx" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="memberListFile" class="form-label">Danh sách thành viên <span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" id="memberListFile" accept=".pdf,.doc,.docx,.xlsx" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="representativeIdFile" class="form-label">CCCD người đại diện</label>
+                                        <input type="file" class="form-control" id="representativeIdFile" accept=".pdf,.jpg,.jpeg,.png">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="meetingMinutesFile" class="form-label">Biên bản họp thành lập</label>
+                                        <input type="file" class="form-control" id="meetingMinutesFile" accept=".pdf,.doc,.docx">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cam kết -->
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                    <label class="form-check-label" for="agreeTerms">
+                                        Tôi cam kết các thông tin trên là chính xác và tuân thủ các quy định pháp luật về hợp tác xã.
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="text-center">
+                                <button type="button" class="btn btn-secondary me-3" onclick="resetForm()">🔄 Làm lại</button>
+                                <button type="submit" class="btn btn-cooperative px-4">📤 Nộp đơn đăng ký</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Hướng dẫn -->
+                <div class="card mt-4 shadow">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">ℹ️ Điều kiện và hướng dẫn</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="text-info">📋 Điều kiện thành lập:</h6>
+                                <ul class="list-unstyled">
+                                    <li>✓ Tối thiểu 7 thành viên (cá nhân hoặc tổ chức)</li>
+                                    <li>✓ Có điều lệ hợp tác xã</li>
+                                    <li>✓ Có vốn điều lệ theo quy định</li>
+                                    <li>✓ Có trụ sở giao dịch</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-info">⏱️ Thời gian xử lý:</h6>
+                                <ul class="list-unstyled">
+                                    <li>✓ Thời gian xử lý: 45 ngày làm việc</li>
+                                    <li>✓ Phí dịch vụ: 500.000 VNĐ</li>
+                                    <li>✓ Nhận kết quả tại Sở Kế hoạch và Đầu tư</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="custom-footer-bottom text-white">
+        <div class="container py-4">
+            <div class="row text-center justify-content-center">
+                <div class="col-md-auto mb-2"><a href="admin/login-admin.html" class="footer-link">ĐĂNG NHẬP NỘI BỘ</a></div>
+                <div class="col-md-auto mb-2"><a href="components/dieu-khoan.html" class="footer-link">ĐIỀU KHOẢN SỬ DỤNG</a></div>
+                <div class="col-md-auto mb-2"><a href="components/quy-dinh-bao-mat.html" class="footer-link">QUY ĐỊNH BẢO MẬT</a></div>
+                <div class="col-md-auto mb-2"><a href="components/lien-he.html" class="footer-link">LIÊN HỆ</a></div>
+            </div>
+
+            <div class="text-center mt-3 small">
+                <span>© 2025 | Bản quyền thuộc Bộ Tài chính</span> &nbsp; | &nbsp;
+                <span>Địa chỉ : Số 28 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</span> &nbsp; | &nbsp;
+                <span>Liên kết website: <a href="https://dangkykinhdoanh.gov.vn/vn/Pages/Trangchu.aspx"
+                        class="footer-link">hotro@dangkykinhdoanh.gov.vn</a></span>
+            </div>
+
+            <div class="text-center mt-2 fw-bold fs-6">
+                <img src="https://cdn-icons-png.flaticon.com/512/545/545705.png" width="20" class="me-2" />
+                <span>Lượt truy cập: 1.725.776.075</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/hop-tac-xa.js"></script>
+</body>
+
+</html>
